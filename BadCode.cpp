@@ -2,82 +2,65 @@
 
 using namespace std;
 
-
-class Cat {
-public:
-	string name{ "cat" };
-	string sound{ "miow" };
+class Mammal {
+protected:
+	string name{};
+	string sound{};
 	unsigned int numFeet{ 4 };
+
+public:
+	Mammal() {
+		cout << "Base: Mammal" << endl ;
+	}
+
+	void sayName() {
+		cout << "Name: " << name << endl;
+	}
+
+	void getSound() {
+		cout << "Sound: " << sound << endl;
+	}
+	void getNumFeet() {
+		cout << "Feet: " << numFeet << endl;
+	}
+
+};
+
+
+class Cat: public Mammal {
 
 public:
 	Cat() {
+		cout << "Derived: Cat" << endl;
+		name = "Cat";
+		sound = "Miow";
 
 	}
-
-	void sayName() {
-		cout << name << endl;
-	}
-
-	void makeSound() {
-		cout << sound << endl;
-	}
-
-	void feetCount() {
-		cout << numFeet << endl;
-	}
-
 };
 
-class Dog {
-public:
-	string name{ "dog" };
-	string sound{ "woof" };
-	unsigned int numFeet{ 4 };
+class Dog : public Mammal {
 
 public:
 	Dog() {
+		cout << "Derived: Dog" << endl;
+		name = "Dog";
+		sound = "Bark";
 
 	}
-
-	void sayName() {
-		cout << name << endl;
-	}
-
-	void makeSound() {
-		cout << sound << endl;
-	}
-
-	void feetCount() {
-		cout << numFeet << endl;
-	}
-
 };
 
-
-class Kangaroo {
-public:
-	string name{ "kangaroo" };
-	string sound{ "grunt" };
-	unsigned int numFeet{ 5 };
+class Kangaroo : public Mammal {
 
 public:
 	Kangaroo() {
-
+		cout << "Derived: kangaroo" << endl;
+		name = "Kangaroo";
+		sound = "Grunt";
+		numFeet = 5;
 	}
-
-	void sayName() {
-		cout << name << endl;
-	}
-
-	void makeSound() {
-		cout << sound << endl;
-	}
-
-	void feetCount() {
-		cout << numFeet << endl;
-	}
-
+	 
 };
+
 
 
 
@@ -86,26 +69,21 @@ public:
 int main()
 
 {
-	cout << string(99, '*') << endl;
 	Cat c;
 	c.sayName();
-	c.makeSound();
-	c.feetCount();
+	c.getSound();
+	c.getNumFeet();
 
-	cout << string(99, '*') << endl;
+	cout << string(99, '-') << endl;
+
 	Dog d;
 	d.sayName();
-	d.makeSound();
-	d.feetCount();
+	d.getSound();
+	d.getNumFeet();
 
-	cout << string(99, '*') << endl;
 	Kangaroo k;
 	k.sayName();
-	k.makeSound();
-	k.feetCount();
-
-
-	cout << string(99, '*') << endl;
-
+	k.getSound();
+	k.getNumFeet();
 }
 
